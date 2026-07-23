@@ -57,35 +57,65 @@
           </ul>
 
           <div class="nav-actions">
-            <button
-              class="icon-btn search-btn"
-              type="button"
-              aria-label="Focus destination search"
-            >
-              <i class="ri-search-line"></i>
-            </button>
 
+            <div class="search-wrapper">
+        
+                <button
+                    class="icon-btn search-toggle"
+                    type="button"
+                    aria-label="Open search"
+                >
+                    <i class="ri-search-line"></i>
+                </button>
+        
+                <div class="search-container">
+        
+                    <i class="ri-search-line search-icon"></i>
+        
+                    <input
+                        id="global-search"
+                        type="text"
+                        placeholder="Search states, food, attractions..."
+                        autocomplete="off"
+                    />
+        
+                    <button
+                        class="search-close"
+                        type="button"
+                    >
+                        <i class="ri-close-line"></i>
+                    </button>
+        
+                    <div id="search-results"></div>
+        
+                </div>
+        
+            </div>
+        
             <button
-              class="icon-btn theme-toggle"
-              type="button"
-              aria-label="Switch to dark mode"
-              aria-pressed="false"
+                class="icon-btn theme-toggle"
+                type="button"
+                aria-label="Switch to dark mode"
+                aria-pressed="false"
             >
-              <i class="ri-moon-line"></i>
+                <i class="ri-moon-line"></i>
             </button>
-
-            <a href="#states" class="btn btn-primary"> Plan a Trip </a>
-
+        
+            <a href="#states" class="btn btn-primary">
+                Plan a Trip
+            </a>
+        
             <button
-              class="menu-btn"
-              type="button"
-              aria-label="Open navigation menu"
-              aria-controls="primary-navigation"
-              aria-expanded="false"
+                class="menu-btn"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-controls="primary-navigation"
+                aria-expanded="false"
             >
-              <i class="ri-menu-3-line"></i>
+                <i class="ri-menu-3-line"></i>
             </button>
-          </div>
+        
+        </div>
         </nav>
       </div>
     </header>

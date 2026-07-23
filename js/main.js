@@ -4,6 +4,7 @@ import { initHero } from "./sections/hero.js";
 import { initStatesSection } from "./sections/states.js";
 import { initDestinationsSection } from "./sections/destinations.js";
 import { initExploreIndia } from "./sections/explore-india.js";
+import { initSearch } from "./components/search.js";
 
 /**
  * Main function to initialize the application.
@@ -15,6 +16,7 @@ function main() {
   initStatesSection();
   initDestinationsSection();
   initExploreIndia();
+  initSearch();
 }
 
 // Wait for the DOM to be ready before running the main script
