@@ -59,38 +59,16 @@
           <div class="nav-actions">
 
             <div class="search-wrapper">
-        
-                <button
-                    class="icon-btn search-toggle"
-                    type="button"
-                    aria-label="Open search"
-                >
-                    <i class="ri-search-line"></i>
-                </button>
-        
-                <div class="search-container">
-        
-                    <i class="ri-search-line search-icon"></i>
-        
-                    <input
-                        id="global-search"
-                        type="text"
-                        placeholder="Search states, food, attractions..."
-                        autocomplete="off"
-                    />
-        
-                    <button
-                        class="search-close"
-                        type="button"
-                    >
-                        <i class="ri-close-line"></i>
-                    </button>
-        
-                    <div id="search-results"></div>
-        
-                </div>
-        
-            </div>
+
+              <button
+                  class="icon-btn search-toggle"
+                  type="button"
+                  aria-label="Open search"
+              >
+                  <i class="ri-search-line"></i>
+              </button>
+          
+          </div>
         
             <button
                 class="icon-btn theme-toggle"
@@ -119,6 +97,35 @@
         </nav>
       </div>
     </header>
+    <div class="search-overlay" id="search-overlay">
+
+      <div class="search-panel">
+  
+          <div class="search-header">
+  
+              <i class="ri-search-line"></i>
+  
+              <input
+                  id="global-search"
+                  type="text"
+                  placeholder="Search states, cities, destinations..."
+                  autocomplete="off"
+              >
+  
+              <button
+                  id="close-search"
+                  class="search-close"
+              >
+                  <i class="ri-close-line"></i>
+              </button>
+  
+          </div>
+  
+          <div id="search-results"></div>
+  
+      </div>
+  
+  </div>
 
     <!-- ========================================= -->
     <!-- HERO SECTION START -->
