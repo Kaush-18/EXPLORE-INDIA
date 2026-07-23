@@ -1,4 +1,5 @@
 import { indiaStates } from "../data/india-states.js";
+import { selectState } from "../sections/explore-india.js";
 
 export function initSearch() {
   const overlay = document.querySelector("#search-overlay");
@@ -83,9 +84,7 @@ export function initSearch() {
       `;
 
       item.addEventListener("click", () => {
-        console.log("Selected:", state.name);
-
-        // We'll connect this to the map next
+        selectState(state);
         closeSearch();
       });
 
