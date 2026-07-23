@@ -22,6 +22,8 @@ export function initSearch() {
 
   const openBtn = document.querySelector(".search-toggle");
   const closeBtn = document.querySelector("#close-search");
+  let activeIndex = -1;
+  let currentMatches = [];
 
   if (!overlay || !input || !results) return;
 
@@ -41,6 +43,57 @@ export function initSearch() {
     input.value = "";
     results.innerHTML = "";
   }
+  input.addEventListener("keydown", (e) => {
+
+    const items = results.querySelectorAll(".search-item");
+
+    if (!items.length) return;
+
+    if (e.key === "ArrowDown") {
+
+        e.preventDefault();
+
+        activeIndex = (activeIndex + 1) % items.length;
+
+    }
+
+    else if (e.key === "ArrowUp") {
+
+        e.preventDefault();
+
+        activeIndex = (activeIndex - 1 + items.length) % items.length;
+
+    }
+
+    else if (e.key === "Enter") {
+
+        e.preventDefault();
+
+        if (activeIndex >= 0) {
+
+            selectState(currentMatches[activeIndex]);
+
+            closeSearch();
+
+        }
+
+        return;
+
+    }
+
+    items.forEach(item => item.classList.remove("active"));
+
+    items[activeIndex]?.classList.add("active");
+
+    items[activeIndex]?.scrollIntoView({
+
+        block:"nearest",
+
+        behavior:"smooth"
+
+    });
+
+});
 
   closeBtn?.addEventListener("click", closeSearch);
 
@@ -74,6 +127,8 @@ export function initSearch() {
         state.cuisine.toLowerCase().includes(query)
       );
     });
+    currentMatches = matches;
+    activeIndex = -1;    
 
     if (matches.length === 0) {
       results.innerHTML = `
@@ -84,10 +139,11 @@ export function initSearch() {
       return;
     }
 
-    matches.forEach((state) => {
+    matches.forEach((state, index) => {
         const item = document.createElement("button");
         item.className = "search-item";
         item.type = "button";
+        item.dataset.index = index;
       item.innerHTML = `
       <img src="${state.image}" alt="${state.name}">
   

@@ -181,3 +181,11 @@
     border-radius: 4px;
     font-weight: 600;
 }
+.search-item.active{
+    background:rgba(37,99,235,.12);
+    outline:2px solid var(--color-primary);
+}
+
+.search-item.active h4{
+    color:var(--color-primary);
+}
