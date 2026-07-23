@@ -1,0 +1,259 @@
+.destinations{
+    padding:120px 0;
+}
+
+.destination-wrapper{
+    position:relative;
+    display:flex;
+    align-items:center;
+}
+
+.destination-slider{
+
+    display:flex;
+
+    gap:24px;
+
+    overflow-x:auto;
+
+    scroll-behavior:smooth;
+
+    scrollbar-width:none;
+
+    padding:20px 0;
+
+    cursor: grab;
+
+    -webkit-overflow-scrolling: touch;
+
+    scroll-snap-type: x mandatory;
+
+    overscroll-behavior-x: contain;
+
+}
+
+.destination-slider::-webkit-scrollbar{
+    display:none;
+}
+.destination-card{
+
+    flex:0 0 clamp(280px,30vw,380px);
+
+    height:500px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:24px;
+
+    transition:.4s;
+
+    flex-shrink:0;
+
+}
+.destination-card img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.6s;
+
+}
+.destination-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-end;
+
+    padding:28px;
+
+    color:#fff;
+
+    background:linear-gradient(
+        180deg,
+        rgba(0,0,0,0.05) 20%,
+        rgba(0,0,0,0.9) 100%
+    );
+
+    transition:0.4s ease;
+
+}
+.destination-card:hover{
+
+    transform:translateY(-15px);
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.45);
+
+}
+
+.destination-card:hover img{
+
+    transform:scale(1.12);
+
+}
+.destination-card:hover .destination-overlay{
+
+    background:linear-gradient(
+        180deg,
+        rgba(0,0,0,0.15) 10%,
+        rgba(0,0,0,0.95) 100%
+    );
+
+}
+.destination-card:hover .explore-btn{
+
+    transform:translateX(8px);
+
+}
+
+.destination-info h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.destination-info p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 16px;
+}
+
+.destination-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.destination-meta span {
+    font-weight: 600;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-size: 1.4rem;
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    display: grid;
+    place-items: center;
+}
+
+.slider-btn:hover {
+    background: var(--color-primary);
+    color: #ffffff;
+    border-color: var(--color-primary);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: var(--shadow-lg);
+}
+
+.prev-btn {
+    left: -25px;
+}
+
+.next-btn {
+    right: -25px;
+}
+
+@media (max-width: 768px) {
+    .slider-btn {
+        display: none;
+    }
+}
+/* ========================================
+   Drag Cursor
+======================================== */
+
+.destination-slider.dragging {
+
+    cursor: grabbing;
+
+    user-select: none;
+
+}
+/* ========================================
+   Responsive
+======================================== */
+
+@media (max-width:768px){
+
+    .destination-card{
+
+        flex:0 0 85%;
+
+        height:420px;
+
+    }
+
+    .slider-btn{
+
+        display:none;
+
+    }
+
+}
+/* ========================================
+   Mobile Scrolling Improvements
+======================================== */
+
+.destination-card{
+
+    scroll-snap-align: start;
+
+}
+.destination-overlay h3,
+.destination-overlay p,
+.destination-state{
+
+    transition:0.35s ease;
+
+}
+
+.destination-card:hover h3{
+
+    transform:translateY(-2px);
+
+}
+
+.destination-card:hover p{
+
+    transform:translateY(-2px);
+
+}
+
+.destination-card:hover .destination-state{
+
+    color:var(--primary);
+
+}
+
+/* ========================================
+   DARK MODE
+======================================== */
+
+body.dark-mode .slider-btn {
+  background: rgba(30, 41, 59, 0.9);
+  color: var(--color-text);
+}

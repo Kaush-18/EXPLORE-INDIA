@@ -1,0 +1,168 @@
+/* =====================================================
+   STATE STATS
+===================================================== */
+
+.stats-card {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: var(--space-10);
+}
+
+.states-stats {
+  position: relative;
+  z-index: 2;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding:
+    var(--space-4)
+    var(--space-8);
+
+  background: var(--color-white);
+
+  border: 1px solid var(--color-divider);
+
+  border-radius: var(--radius-full);
+
+  box-shadow: var(--shadow-lg);
+
+  text-align: center;
+
+  transition:
+    transform var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+.states-stats:hover {
+  transform: translateY(-3px);
+
+  box-shadow: var(--shadow-xl);
+}
+
+.states-stats div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 var(--space-7);
+
+  color: var(--color-text-muted);
+
+  font-size: var(--fs-sm);
+
+  font-weight: var(--fw-semibold);
+
+  letter-spacing: .05em;
+
+  text-transform: uppercase;
+
+  border-right: 1px solid var(--color-divider);
+}
+
+.states-stats div:last-child {
+  border-right: none;
+}
+
+.states-stats strong {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: var(--color-primary);
+
+  font-size: clamp(1.3rem,2vw,1.6rem);
+
+  font-weight: var(--fw-bold);
+
+  line-height: 1.2;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width:900px){
+
+  .stats-card{
+    margin-bottom:var(--space-8);
+  }
+
+  .states-stats{
+
+    padding:
+      var(--space-3)
+      var(--space-5);
+
+  }
+
+  .states-stats div{
+
+    padding:0 var(--space-4);
+
+    font-size:.78rem;
+
+  }
+
+  .states-stats strong{
+
+    font-size:1.2rem;
+
+  }
+
+}
+
+@media (max-width:520px){
+
+  .states-stats{
+
+    width:100%;
+    max-width:360px;
+
+    border-radius:var(--radius-lg);
+
+    padding:
+      var(--space-3)
+      var(--space-3);
+
+  }
+
+  .states-stats div{
+
+    padding:0 var(--space-2);
+
+    font-size:.72rem;
+
+  }
+
+  .states-stats strong{
+
+    font-size:1.1rem;
+
+  }
+
+}
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+body.dark-mode .states-stats{
+
+  background:rgba(30,41,59,.92);
+
+  border-color:rgba(148,163,184,.18);
+
+}
+
+body.dark-mode .states-stats div{
+
+  color:var(--color-text-muted);
+
+}

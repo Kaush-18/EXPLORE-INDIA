@@ -1,0 +1,78 @@
+/* =====================================================
+   STATES SECTION
+===================================================== */
+
+.states {
+  position: relative;
+  overflow: hidden;
+
+  padding: clamp(80px, 10vw, 120px) 0;
+
+  background: linear-gradient(
+    180deg,
+    var(--color-bg) 0%,
+    rgba(37, 99, 235, 0.03) 100%
+  );
+}
+
+/* =====================================================
+   STATES GRID LAYOUT
+===================================================== */
+
+.states-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-6);
+}
+
+@media (max-width: 1024px) {
+  .states-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-5);
+  }
+}
+
+@media (max-width: 640px) {
+  .states-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}
+
+/* =====================================================
+   DECORATIVE BLUR ELEMENTS
+===================================================== */
+.states::before,
+.states::after {
+  content: "";
+
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.states::before {
+  top: -140px;
+  left: -120px;
+
+  width: 320px;
+  height: 320px;
+
+  background: rgba(37, 99, 235, 0.08);
+
+  filter: blur(80px);
+}
+
+.states::after {
+  right: -120px;
+  bottom: -120px;
+
+  width: 280px;
+  height: 280px;
+
+  background: rgba(16, 185, 129, 0.08);
+
+  filter: blur(80px);
+}

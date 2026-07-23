@@ -1,0 +1,130 @@
+/* =====================================================
+   STATE FILTERS
+===================================================== */
+
+.state-filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+
+  margin-bottom: var(--space-10);
+}
+
+.state-filters button {
+  appearance: none;
+  border: 1px solid var(--color-divider);
+  outline: none;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.8rem 1.4rem;
+
+  background: var(--color-white);
+  color: var(--color-text);
+
+  border-radius: var(--radius-full);
+
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+
+  transition:
+    background var(--transition-normal),
+    color var(--transition-normal),
+    border-color var(--transition-normal),
+    transform var(--transition-fast),
+    box-shadow var(--transition-normal);
+}
+
+.state-filters button:hover {
+  transform: translateY(-2px);
+
+  border-color: var(--color-primary);
+
+  color: var(--color-primary);
+
+  box-shadow: var(--shadow-md);
+}
+
+.state-filters button.active {
+  background: var(--color-primary);
+  color: var(--color-white);
+
+  border-color: var(--color-primary);
+
+  box-shadow: var(--shadow-lg);
+}
+
+.state-filters button:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.25);
+  outline-offset: 3px;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 768px) {
+
+  .state-filters {
+    gap: var(--space-3);
+    margin-bottom: var(--space-8);
+  }
+
+  .state-filters button {
+    padding: 0.72rem 1.15rem;
+    font-size: 0.9rem;
+  }
+
+}
+
+@media (max-width: 520px) {
+
+  .state-filters {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+
+    padding-bottom: var(--space-2);
+
+    scrollbar-width: none;
+  }
+
+  .state-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .state-filters button {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+}
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+body.dark-mode .state-filters button {
+  background: rgba(30, 41, 59, 0.92);
+
+  color: var(--color-text-muted);
+
+  border-color: rgba(148, 163, 184, 0.18);
+}
+
+body.dark-mode .state-filters button:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+body.dark-mode .state-filters button.active {
+  background: var(--color-primary);
+  color: var(--color-white);
+
+  border-color: var(--color-primary);
+}

@@ -1,0 +1,239 @@
+/* =====================================================
+   GLOBAL TYPOGRAPHY
+===================================================== */
+
+html {
+
+    font-size: 16px;
+
+    scroll-behavior: smooth;
+
+}
+
+body {
+
+    font-family: var(--font-family);
+
+    font-size: var(--fs-base);
+
+    font-weight: var(--fw-regular);
+
+    line-height: 1.7;
+
+    color: var(--color-text);
+
+    background: var(--color-bg);
+
+    text-rendering: optimizeLegibility;
+
+    -webkit-font-smoothing: antialiased;
+
+}
+
+/* =====================================================
+   HEADINGS
+===================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+
+    margin:0;
+
+    color:var(--color-text);
+
+    font-weight:var(--fw-bold);
+
+    text-wrap:balance;
+
+}
+
+h1{
+
+    font-size:var(--fs-4xl);
+
+    line-height:1.05;
+
+    letter-spacing:-0.03em;
+
+}
+
+h2{
+
+    font-size:var(--fs-3xl);
+
+    line-height:1.1;
+
+    letter-spacing:-0.02em;
+
+}
+
+h3{
+
+    font-size:var(--fs-2xl);
+
+    line-height:1.2;
+
+}
+
+h4{
+
+    font-size:var(--fs-xl);
+
+}
+
+h5{
+
+    font-size:var(--fs-lg);
+
+}
+
+h6{
+
+    font-size:var(--fs-base);
+
+}
+
+/* =====================================================
+   PARAGRAPHS
+===================================================== */
+
+p{
+
+    margin:0;
+
+    color:var(--color-text-muted);
+
+    line-height:1.8;
+
+    max-width:70ch;
+
+}
+
+/* =====================================================
+   LINKS
+===================================================== */
+
+a{
+
+    color:inherit;
+
+    text-decoration:none;
+
+    transition:
+
+        color var(--transition-fast);
+
+}
+
+a:hover{
+
+    color:var(--color-primary);
+
+}
+
+/* =====================================================
+   LISTS
+===================================================== */
+
+ul,
+ol{
+
+    margin:0;
+
+    padding:0;
+
+    list-style:none;
+
+}
+
+/* =====================================================
+   IMAGES
+===================================================== */
+
+img{
+
+    display:block;
+
+    max-width:100%;
+
+    height:auto;
+
+}
+
+/* =====================================================
+   SELECTION
+===================================================== */
+
+::selection{
+
+    background:var(--color-primary);
+
+    color:var(--color-white);
+
+}
+
+/* =====================================================
+   TYPOGRAPHY UTILITIES
+===================================================== */
+
+.text-center{
+
+    text-align:center;
+
+}
+
+.text-left{
+
+    text-align:left;
+
+}
+
+.text-right{
+
+    text-align:right;
+
+}
+
+.text-muted{
+
+    color:var(--color-text-muted);
+
+}
+
+.text-primary{
+
+    color:var(--color-primary);
+
+}
+
+.text-bold{
+
+    font-weight:var(--fw-bold);
+
+}
+
+.text-semibold{
+
+    font-weight:var(--fw-semibold);
+
+}
+
+.text-gradient{
+
+    background:linear-gradient(
+        135deg,
+        var(--color-primary),
+        #60a5fa
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+    background-clip:text;
+
+}

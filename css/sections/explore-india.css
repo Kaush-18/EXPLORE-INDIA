@@ -1,0 +1,412 @@
+/* ========================================
+   Explore India Section
+   ======================================== */
+
+.explore-india {
+    padding: 100px 0;
+}
+
+.india-map-layout {
+    display: grid;
+
+    grid-template-columns: minmax(0, 2fr) minmax(360px, 420px);
+
+    align-items: start;
+
+    gap: 2rem;
+
+    margin-top: 4rem;
+}
+
+.india-map-container {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 24px;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 720px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+#india-map{
+
+    width:100%;
+
+    height:100%;
+
+    max-width:700px;
+
+    aspect-ratio:1;
+
+    display:block;
+
+}
+
+.india-map-container object {
+    width: 100%;
+    height: auto;
+}
+
+.state-info-panel {
+
+    position: sticky;
+    top: 100px;
+
+    align-self: start;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: var(--space-5);
+
+    padding: var(--space-6);
+
+    background: var(--color-surface);
+
+    border: 1px solid var(--color-border);
+
+    border-radius: var(--radius-xl);
+
+    box-shadow: var(--shadow-md);
+
+    transition: all var(--transition-normal);
+
+}
+
+.state-info-panel h3{
+
+    margin:0;
+
+    font-size:var(--fs-2xl);
+
+    color:var(--color-text);
+
+}
+
+.state-info-panel p{
+
+    margin:0;
+
+    color:var(--color-text-muted);
+
+    line-height:1.7;
+
+}
+/* ==========================
+   State Meta Grid
+========================== */
+
+.state-meta{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:var(--space-3);
+
+}
+
+.meta-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.meta-card p{
+
+    margin:0;
+
+    font-weight:600;
+
+    color:var(--color-text);
+
+}
+/* ==========================
+   Attraction & City Chips
+========================== */
+
+.travel-details{
+
+    display:flex;
+    flex-direction:column;
+    gap:var(--space-4);
+
+}
+
+.travel-details h4{
+
+    margin:0;
+
+    font-size:var(--fs-md);
+
+    color:var(--color-text);
+
+}
+
+#state-attractions{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:.75rem;
+
+    padding:0;
+
+    margin:0;
+
+    list-style:none;
+
+}
+
+#state-cities{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:.5rem;
+
+}
+.city-chip:hover{
+
+    border-color:var(--color-primary);
+
+    transform:translateY(-2px);
+
+}
+/* ==========================
+   Travel Highlights
+========================== */
+
+.travel-highlights{
+
+    display:grid;
+
+    gap:var(--space-3);
+
+}
+
+.highlight-card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow-sm);
+
+    border-color:rgba(37,99,235,.35);
+
+}
+
+.highlight-card p{
+
+    margin:0;
+
+    color:var(--color-text);
+
+    line-height:1.6;
+
+}
+
+#state-image{
+
+    width:100%;
+
+    aspect-ratio:16/9;
+
+    object-fit:cover;
+
+    border-radius:var(--radius-lg);
+
+}
+#state-attractions li {
+    display: inline-flex;
+    align-items: center;
+
+    padding: .6rem 1rem;
+
+    background: rgba(37,99,235,.10);
+    border: 1px solid rgba(37,99,235,.20);
+
+    border-radius: 999px;
+
+    color: var(--color-primary);
+
+    font-size: var(--fs-sm);
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition: all var(--transition-fast);
+}
+
+#state-attractions li:hover {
+    transform: translateY(-2px);
+    background: rgba(37,99,235,.18);
+}
+
+.travel-details h4 {
+    font-size: 1rem;
+    margin-bottom: 6px;
+    color: var(--black);
+}
+
+.travel-details ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.travel-details li {
+    margin: 0;
+}
+
+.travel-details h4 + p,
+.travel-details h4 + ul {
+    margin-top: 0;
+}
+
+body.dark-mode .india-map-container,
+body.dark-mode .state-info-panel {
+    background: rgba(30, 41, 59, 0.9);
+    border-color: rgba(148, 163, 184, 0.16);
+}
+
+/* ========================================
+   RESPONSIVE — 1024px (Tablet Landscape)
+   ======================================== */
+
+@media (max-width: 1024px) {
+    .india-map-layout {
+        gap: 36px;
+    }
+}
+
+/* ========================================
+   RESPONSIVE — 768px (Tablet Portrait)
+   Stack layout vertically
+   ======================================== */
+
+@media (max-width: 768px) {
+    .explore-india {
+        padding: 70px 0;
+    }
+
+    .india-map-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        max-width: 560px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .india-map-container {
+        max-width: 100%;
+    }
+
+    .state-info-panel {
+        max-height: 520px;
+        overflow-y: auto;
+    }
+
+    #state-image {
+        aspect-ratio: 16 / 10;
+    }
+}
+
+/* ========================================
+   RESPONSIVE — 520px (Mobile)
+   ======================================== */
+
+@media (max-width: 520px) {
+    .explore-india {
+        padding: 52px 0;
+    }
+
+    .india-map-layout {
+        margin-top: 36px;
+        gap: 24px;
+        max-width: 100%;
+    }
+
+    .state-info-panel {
+        padding: 1rem;
+        gap: 1rem;
+        border-radius: 18px;
+        max-height: 440px;
+        overflow-y: auto;
+    }
+
+    .state-info-panel h3 {
+        margin-bottom: 12px;
+        font-size: 1.4rem;
+    }
+
+    #state-image {
+        aspect-ratio: 16 / 10;
+        border-radius: 12px;
+    }
+
+    .travel-details h4 {
+        font-size: 0.92rem;
+    }
+
+    .travel-details li {
+        font-size: 0.85rem;
+    }
+}
+
+/* ========================================
+   RESPONSIVE — 380px (Small Mobile)
+   ======================================== */
+
+@media (max-width: 380px) {
+    .explore-india {
+        padding: 40px 0;
+    }
+
+    .india-map-layout {
+        margin-top: 28px;
+        gap: 20px;
+    }
+
+    .state-info-panel {
+        padding: 0.85rem;
+        gap: 0.8rem;
+        border-radius: 14px;
+        max-height: 400px;
+    }
+
+    .state-info-panel h3 {
+        font-size: 1.2rem;
+    }
+
+    #state-image {
+        aspect-ratio: 16 / 10;
+        border-radius: 10px;
+    }
+}
+@media (max-width: 1100px){
+
+    .india-map-layout{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .state-info-panel{
+
+        position:static;
+
+        max-width:none;
+
+    }
+
+}
+.explore-btn {
+    margin-top: var(--space-4);
+    align-self: flex-start;
+}
