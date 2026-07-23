@@ -4,6 +4,7 @@
 import { indiaStates } from "../data/india-states.js";
 const dom = {};
 let selectedStateElement = null;
+let svgDocument = null;
 
 function cacheDOM() {
     dom.image = document.getElementById("state-image");
@@ -56,7 +57,26 @@ export function updateStatePanel(state) {
     }
 }
 export function selectState(state) {
+
     updateStatePanel(state);
+
+    if (svgDocument) {
+
+        const stateElement = svgDocument.getElementById(state.id);
+
+        if (stateElement) {
+
+            if (selectedStateElement && selectedStateElement !== stateElement) {
+                selectedStateElement.style.fill = "";
+            }
+
+            selectedStateElement = stateElement;
+
+            stateElement.style.fill = "#2563eb";
+
+        }
+
+    }
 
     document
         .querySelector(".explore-india")
@@ -64,6 +84,7 @@ export function selectState(state) {
             behavior: "smooth",
             block: "start",
         });
+
 }
 
 function attachStateEvents(stateElement, state) {
@@ -111,7 +132,7 @@ export function initExploreIndia() {
 
     mapObject.addEventListener("load", () => {
 
-        const svgDocument = mapObject.contentDocument;
+        svgDocument = mapObject.contentDocument;
     
         if (!svgDocument) {
             console.error("SVG could not be loaded.");
