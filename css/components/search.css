@@ -153,3 +153,31 @@
     color:var(--color-text-muted);
 
 }
+.search-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: left;
+}
+
+.search-info h4 {
+    font-size: 1rem;
+    color: var(--color-text);
+}
+
+.search-info p {
+    font-size: .9rem;
+    color: var(--color-text-muted);
+}
+
+.search-info small {
+    color: var(--color-primary);
+}
+
+.search-info mark {
+    background: rgba(37, 99, 235, .18);
+    color: var(--color-primary);
+    padding: 1px 4px;
+    border-radius: 4px;
+    font-weight: 600;
+}

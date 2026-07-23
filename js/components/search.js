@@ -1,6 +1,20 @@
 import { indiaStates } from "../data/india-states.js";
 import { selectState } from "../sections/explore-india.js";
 
+function highlightMatch(text, query) {
+  const index = text.toLowerCase().indexOf(query.toLowerCase());
+
+  if (index === -1) return text;
+
+  return (
+    text.substring(0, index) +
+    `<mark>` +
+    text.substring(index, index + query.length) +
+    `</mark>` +
+    text.substring(index + query.length)
+  );
+}
+
 export function initSearch() {
   const overlay = document.querySelector("#search-overlay");
   const input = document.querySelector("#global-search");
@@ -71,17 +85,26 @@ export function initSearch() {
     }
 
     matches.forEach((state) => {
-      const item = document.createElement("button");
-
-      item.className = "search-item";
-
+        const item = document.createElement("button");
+        item.className = "search-item";
+        item.type = "button";
       item.innerHTML = `
-        <img src="${state.image}" alt="${state.name}">
-        <div>
-          <h4>${state.name}</h4>
-          <p>${state.capital}</p>
-        </div>
-      `;
+      <img src="${state.image}" alt="${state.name}">
+  
+      <div class="search-info">
+  
+          <h4>${highlightMatch(state.name, query)}</h4>
+  
+          <p>
+              📍 ${highlightMatch(state.capital, query)}
+          </p>
+  
+          <small>
+              ${highlightMatch(state.famousFor, query)}
+          </small>
+  
+      </div>
+  `;
 
       item.addEventListener("click", () => {
         selectState(state);
