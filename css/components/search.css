@@ -189,3 +189,11 @@
 .search-item.active h4{
     color:var(--color-primary);
 }
+.search-item.active {
+    background: rgba(37, 99, 235, 0.12);
+    border: 1px solid rgba(37, 99, 235, 0.4);
+}
+
+.search-item.active h4 {
+    color: var(--color-primary);
+}

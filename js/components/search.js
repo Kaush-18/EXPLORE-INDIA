@@ -1,7 +1,12 @@
 import { indiaStates } from "../data/india-states.js";
 import { selectState } from "../sections/explore-india.js";
 
+// -------------------------------------
+// Highlight Matching Text
+// -------------------------------------
 function highlightMatch(text, query) {
+  if (!query) return text;
+
   const index = text.toLowerCase().indexOf(query.toLowerCase());
 
   if (index === -1) return text;
@@ -22,78 +27,32 @@ export function initSearch() {
 
   const openBtn = document.querySelector(".search-toggle");
   const closeBtn = document.querySelector("#close-search");
-  let activeIndex = -1;
-  let currentMatches = [];
 
   if (!overlay || !input || !results) return;
 
-  // -----------------------------
+  let activeIndex = -1;
+  let currentMatches = [];
+
+  // -------------------------------------
   // Open Search
-  // -----------------------------
+  // -------------------------------------
   openBtn?.addEventListener("click", () => {
     overlay.classList.add("active");
     input.focus();
   });
 
-  // -----------------------------
+  // -------------------------------------
   // Close Search
-  // -----------------------------
+  // -------------------------------------
   function closeSearch() {
     overlay.classList.remove("active");
+
     input.value = "";
     results.innerHTML = "";
+
+    activeIndex = -1;
+    currentMatches = [];
   }
-  input.addEventListener("keydown", (e) => {
-
-    const items = results.querySelectorAll(".search-item");
-
-    if (!items.length) return;
-
-    if (e.key === "ArrowDown") {
-
-        e.preventDefault();
-
-        activeIndex = (activeIndex + 1) % items.length;
-
-    }
-
-    else if (e.key === "ArrowUp") {
-
-        e.preventDefault();
-
-        activeIndex = (activeIndex - 1 + items.length) % items.length;
-
-    }
-
-    else if (e.key === "Enter") {
-
-        e.preventDefault();
-
-        if (activeIndex >= 0) {
-
-            selectState(currentMatches[activeIndex]);
-
-            closeSearch();
-
-        }
-
-        return;
-
-    }
-
-    items.forEach(item => item.classList.remove("active"));
-
-    items[activeIndex]?.classList.add("active");
-
-    items[activeIndex]?.scrollIntoView({
-
-        block:"nearest",
-
-        behavior:"smooth"
-
-    });
-
-});
 
   closeBtn?.addEventListener("click", closeSearch);
 
@@ -104,20 +63,25 @@ export function initSearch() {
   });
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
+    if (e.key === "Escape" && overlay.classList.contains("active")) {
       closeSearch();
     }
   });
 
-  // -----------------------------
+  // -------------------------------------
   // Live Search
-  // -----------------------------
+  // -------------------------------------
   input.addEventListener("input", () => {
     const query = input.value.trim().toLowerCase();
 
     results.innerHTML = "";
 
-    if (!query) return;
+    activeIndex = -1;
+
+    if (!query) {
+      currentMatches = [];
+      return;
+    }
 
     const matches = indiaStates.filter((state) => {
       return (
@@ -127,10 +91,10 @@ export function initSearch() {
         state.cuisine.toLowerCase().includes(query)
       );
     });
-    currentMatches = matches;
-    activeIndex = -1;    
 
-    if (matches.length === 0) {
+    currentMatches = matches;
+
+    if (!matches.length) {
       results.innerHTML = `
         <div class="search-empty">
           No results found.
@@ -140,27 +104,29 @@ export function initSearch() {
     }
 
     matches.forEach((state, index) => {
-        const item = document.createElement("button");
-        item.className = "search-item";
-        item.type = "button";
-        item.dataset.index = index;
+      const item = document.createElement("button");
+
+      item.className = "search-item";
+      item.type = "button";
+      item.dataset.index = index;
+
       item.innerHTML = `
-      <img src="${state.image}" alt="${state.name}">
-  
-      <div class="search-info">
-  
+        <img src="${state.image}" alt="${state.name}">
+
+        <div class="search-info">
+
           <h4>${highlightMatch(state.name, query)}</h4>
-  
+
           <p>
-              📍 ${highlightMatch(state.capital, query)}
+            📍 ${highlightMatch(state.capital, query)}
           </p>
-  
+
           <small>
-              ${highlightMatch(state.famousFor, query)}
+            ${highlightMatch(state.famousFor, query)}
           </small>
-  
-      </div>
-  `;
+
+        </div>
+      `;
 
       item.addEventListener("click", () => {
         selectState(state);
@@ -168,6 +134,51 @@ export function initSearch() {
       });
 
       results.appendChild(item);
+    });
+  });
+
+  // -------------------------------------
+  // Keyboard Navigation
+  // -------------------------------------
+  input.addEventListener("keydown", (e) => {
+    const items = results.querySelectorAll(".search-item");
+
+    if (!items.length) return;
+
+    switch (e.key) {
+      case "ArrowDown":
+        e.preventDefault();
+        activeIndex = (activeIndex + 1) % items.length;
+        break;
+
+      case "ArrowUp":
+        e.preventDefault();
+        activeIndex = (activeIndex - 1 + items.length) % items.length;
+        break;
+
+      case "Enter":
+        e.preventDefault();
+
+        if (activeIndex >= 0) {
+          selectState(currentMatches[activeIndex]);
+          closeSearch();
+        }
+
+        return;
+
+      default:
+        return;
+    }
+
+    items.forEach((item) => item.classList.remove("active"));
+
+    const activeItem = items[activeIndex];
+
+    activeItem.classList.add("active");
+
+    activeItem.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
     });
   });
 }
