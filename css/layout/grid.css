@@ -14,10 +14,37 @@
 }
 
 /* Three-column grid */
-.grid-3 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+.grid-3{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(3,1fr);
+
+    gap:2rem;
+
 }
 
+@media(max-width:992px){
+
+    .grid-3{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .grid-3{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
 /* Four-column grid */
 .grid-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));

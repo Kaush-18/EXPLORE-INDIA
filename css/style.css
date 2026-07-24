@@ -31,6 +31,10 @@
 @import url("./components/info-card.css");
 @import url("./components/contact-card.css");
 @import url("./components/search.css");
+@import url("./components/icon-box.css");
+@import url("./components/badges.css");
+@import url("./components/inputs.css");
+@import url("./components/loader.css");
 
 /* ==========================================
    SECTIONS

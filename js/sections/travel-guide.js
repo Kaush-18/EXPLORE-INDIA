@@ -12,12 +12,11 @@ export function initTravelGuide() {
 
         container.innerHTML += `
 
-            <article
-                class="guide-card reveal"
+            <article class="glass-card guide-card"
                 style="animation-delay:${index * 120}ms"
             >
 
-                <div class="guide-icon">
+            <div class="icon-box guide-icon">
 
                     <i class="${item.icon}"></i>
 

@@ -1,0 +1,39 @@
+.icon-box{
+
+    width:72px;
+
+    height:72px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--color-primary),
+            #7c3aed
+        );
+
+    color:#fff;
+
+    font-size:2rem;
+
+    box-shadow:
+        0 15px 30px rgba(37,99,235,.30);
+
+    transition:.4s;
+
+}
+
+.glass-card:hover .icon-box{
+
+    transform:
+        rotate(-8deg)
+        scale(1.08);
+
+}

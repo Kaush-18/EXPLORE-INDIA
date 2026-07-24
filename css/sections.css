@@ -2,8 +2,14 @@
 /* GENERIC SECTION STYLES */
 /* ========================================= */
 
-.section {
-  padding: clamp(72px, 9vw, 110px) 0;
+.section{
+
+  padding:
+
+      var(--space-10)
+
+      0;
+
 }
 
 .section-header {

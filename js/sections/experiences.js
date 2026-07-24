@@ -1,77 +1,91 @@
 import { experiences } from "../data/experiences.js";
+
 export function initExperiences() {
-  const container = document.querySelector("#experiences-grid");
 
-  if (!container) return;
+    const container = document.querySelector("#experiences-grid");
 
-  container.innerHTML = "";
-  if(experiences.length===0){
+    if (!container) return;
 
-    container.innerHTML=`
+    container.innerHTML = "";
 
-        <div class="empty-state">
+    // Empty State
+    if (experiences.length === 0) {
 
-            <h3>No Experiences Found</h3>
+        container.innerHTML = `
+            <div class="empty-state">
+                <h3>No Experiences Found</h3>
+                <p>Please check back later.</p>
+            </div>
+        `;
 
-            <p>Please check back later.</p>
+        return;
+    }
 
-        </div>
+    experiences.forEach((experience, index) => {
 
-    `;
+        container.innerHTML += `
 
-    return;
+        <article
+            class="experience-card reveal"
+            style="animation-delay:${index * 120}ms"
+        >
 
-}
+            <!-- Image -->
+            <div class="experience-image">
 
-  experiences.forEach((experience, index) => {
-    container.innerHTML += `
-    <article
-    class="experience-card reveal"
-    style="animation-delay:${index * 120}ms">
+                <img
+                    src="${experience.image}"
+                    alt="${experience.title}"
+                    loading="lazy"
+                >
 
-    <div class="experience-image">
+                <span class="experience-rating">
+                    ⭐ ${experience.rating}
+                </span>
 
-        <img src="${experience.image}" alt="${experience.title}">
+            </div>
 
-        <span class="experience-rating">
-            ⭐ ${experience.rating}
-        </span>
+            <!-- Content -->
+            <div class="experience-content">
 
-    </div>
+                <span class="experience-category">
+                    ${experience.category}
+                </span>
 
-    <div class="experience-content">
+                <h3>
+                    ${experience.title}
+                </h3>
 
-        <span class="experience-category">
-            ${experience.category}
-        </span>
+                <p>
+                    ${experience.description}
+                </p>
 
-        <h3>${experience.title}</h3>
+                <div class="experience-meta">
 
-        <p>${experience.description}</p>
+                    <span>
+                        📍 ${experience.location}
+                    </span>
 
-        <div class="experience-meta">
+                    <span>
+                        ⏱ ${experience.duration}
+                    </span>
 
-            <span>
-                📍 ${experience.location}
-            </span>
+                </div>
 
-            <span>
-                ⏱ ${experience.duration}
-            </span>
+                <button class="experience-btn">
 
-        </div>
+                    Explore More
 
-        <button class="experience-btn">
+                    <i class="ri-arrow-right-line"></i>
 
-            Explore More
+                </button>
 
-            <i class="ri-arrow-right-line"></i>
+            </div>
 
-        </button>
+        </article>
 
-    </div>
+        `;
 
-</article>
-    `;
-  });
+    });
+
 }
