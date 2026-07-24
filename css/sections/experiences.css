@@ -1,0 +1,306 @@
+/* ==========================================================
+   EXPERIENCES SECTION
+========================================================== */
+
+.experiences {
+    position: relative;
+    overflow: hidden;
+}
+
+/* ==========================================================
+   GRID
+========================================================== */
+
+.experiences-grid {
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+
+    gap: 2rem;
+
+    margin-top: 4rem;
+
+}
+
+/* ==========================================================
+   CARD
+========================================================== */
+
+.experience-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    background: var(--surface-color);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.08);
+
+    transition:
+        transform .45s ease,
+        box-shadow .45s ease,
+        border-color .45s ease;
+
+    cursor: pointer;
+
+    isolation: isolate;
+
+}
+
+.experience-card:hover{
+
+    transform: translateY(-12px);
+
+    border-color: rgba(37,99,235,.25);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.16);
+
+}
+
+/* ==========================================================
+   IMAGE
+========================================================== */
+
+.experience-image{
+
+    position: relative;
+
+    overflow: hidden;
+
+    height: 250px;
+
+}
+
+.experience-image img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:
+        transform .8s ease,
+        filter .5s ease;
+
+    display:block;
+
+}
+
+/* Dark Gradient */
+
+.experience-image::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+        to top,
+        rgba(0,0,0,.65),
+        rgba(0,0,0,.10),
+        transparent
+    );
+
+    pointer-events:none;
+
+}
+/* ==========================================================
+   CONTENT
+========================================================== */
+
+.experience-content{
+
+    padding:2rem;
+
+}
+
+.experience-category{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    padding:.45rem .95rem;
+
+    border-radius:999px;
+
+    background:rgba(37,99,235,.12);
+
+    color:var(--primary-color);
+
+    font-size:.82rem;
+
+    font-weight:700;
+
+    letter-spacing:.4px;
+
+    text-transform:uppercase;
+
+}
+
+.experience-content h3{
+
+    margin-top:1.1rem;
+
+    margin-bottom:.9rem;
+
+    font-size:1.65rem;
+
+    line-height:1.25;
+
+    font-weight:700;
+
+}
+
+.experience-content p{
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+    margin-bottom:1.8rem;
+
+}
+
+/* ==========================================================
+   BUTTON
+========================================================== */
+
+.experience-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:.55rem;
+
+    padding:.9rem 1.4rem;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:var(--primary-color);
+
+    color:#fff;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s ease;
+
+}
+
+.experience-btn:hover{
+
+    transform:translateX(6px);
+
+}
+/* ==========================================================
+   HOVER EFFECTS
+========================================================== */
+
+.experience-card:hover img{
+
+    transform:scale(1.12);
+
+    filter:saturate(1.15);
+
+}
+
+.experience-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:inherit;
+
+    padding:1px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(37,99,235,.35),
+        transparent,
+        rgba(255,255,255,.18)
+    );
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite:xor;
+
+    mask-composite:exclude;
+
+    opacity:0;
+
+    transition:.45s ease;
+
+}
+
+.experience-card:hover::before{
+
+    opacity:1;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width:992px){
+
+    .experiences-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .experiences-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .experience-image{
+
+        height:220px;
+
+    }
+
+    .experience-content{
+
+        padding:1.6rem;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .experience-content h3{
+
+        font-size:1.35rem;
+
+    }
+
+}
