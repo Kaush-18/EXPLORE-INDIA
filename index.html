@@ -3,10 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2563eb">
     <meta
       name="description"
       content="Explore India's iconic destinations, experiences, and travel inspiration in one place."
     />
+
 
     <title>Explore India | Discover Incredible India</title>
 
@@ -55,38 +57,75 @@
           </ul>
 
           <div class="nav-actions">
-            <button
-              class="icon-btn search-btn"
-              type="button"
-              aria-label="Focus destination search"
-            >
-              <i class="ri-search-line"></i>
-            </button>
 
-            <button
-              class="icon-btn theme-toggle"
-              type="button"
-              aria-label="Switch to dark mode"
-              aria-pressed="false"
-            >
-              <i class="ri-moon-line"></i>
-            </button>
+            <div class="search-wrapper">
 
-            <a href="#states" class="btn btn-primary"> Plan a Trip </a>
-
-            <button
-              class="menu-btn"
-              type="button"
-              aria-label="Open navigation menu"
-              aria-controls="primary-navigation"
-              aria-expanded="false"
-            >
-              <i class="ri-menu-3-line"></i>
-            </button>
+              <button
+                  class="icon-btn search-toggle"
+                  type="button"
+                  aria-label="Open search"
+              >
+                  <i class="ri-search-line"></i>
+              </button>
+          
           </div>
+        
+            <button
+                class="icon-btn theme-toggle"
+                type="button"
+                aria-label="Switch to dark mode"
+                aria-pressed="false"
+            >
+                <i class="ri-moon-line"></i>
+            </button>
+        
+            <a href="#states" class="btn btn-primary">
+                Plan a Trip
+            </a>
+        
+            <button
+                class="menu-btn"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-controls="primary-navigation"
+                aria-expanded="false"
+            >
+                <i class="ri-menu-3-line"></i>
+            </button>
+        
+        </div>
         </nav>
       </div>
     </header>
+    <div class="search-overlay" id="search-overlay">
+
+      <div class="search-panel">
+  
+          <div class="search-header">
+  
+              <i class="ri-search-line"></i>
+  
+              <input
+                  id="global-search"
+                  type="text"
+                  placeholder="Search states, cities, destinations..."
+                  autocomplete="off"
+              >
+  
+              <button
+                  id="close-search"
+                  class="search-close"
+              >
+                  <i class="ri-close-line"></i>
+              </button>
+  
+          </div>
+  
+          <div id="search-results"></div>
+  
+      </div>
+  
+  </div>
 
     <!-- ========================================= -->
     <!-- HERO SECTION START -->

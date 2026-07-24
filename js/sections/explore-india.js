@@ -4,6 +4,7 @@
 import { indiaStates } from "../data/india-states.js";
 const dom = {};
 let selectedStateElement = null;
+let svgDocument = null;
 
 function cacheDOM() {
     dom.image = document.getElementById("state-image");
@@ -21,7 +22,7 @@ function cacheDOM() {
     dom.exploreBtn = document.querySelector(".state-info-panel .explore-btn");
 }
 
-function updateStatePanel(state) {
+export function updateStatePanel(state) {
 
     if (!dom.image || !dom.name) return;
 
@@ -55,6 +56,36 @@ function updateStatePanel(state) {
         dom.festival.textContent = state.festival;
     }
 }
+export function selectState(state) {
+
+    updateStatePanel(state);
+
+    if (svgDocument) {
+
+        const stateElement = svgDocument.getElementById(state.id);
+
+        if (stateElement) {
+
+            if (selectedStateElement && selectedStateElement !== stateElement) {
+                selectedStateElement.style.fill = "";
+            }
+
+            selectedStateElement = stateElement;
+
+            stateElement.style.fill = "#2563eb";
+
+        }
+
+    }
+
+    document
+        .querySelector(".explore-india")
+        ?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+        });
+
+}
 
 function attachStateEvents(stateElement, state) {
 
@@ -80,7 +111,7 @@ function attachStateEvents(stateElement, state) {
         selectedStateElement = stateElement;
         stateElement.style.fill = "#2563eb";
 
-        updateStatePanel(state);
+        selectState(state);
     });
 
 }
@@ -101,7 +132,7 @@ export function initExploreIndia() {
 
     mapObject.addEventListener("load", () => {
 
-        const svgDocument = mapObject.contentDocument;
+        svgDocument = mapObject.contentDocument;
     
         if (!svgDocument) {
             console.error("SVG could not be loaded.");
