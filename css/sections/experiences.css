@@ -304,3 +304,106 @@
     }
 
 }
+.experience-meta{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin:1.5rem 0;
+
+    color:var(--text-light);
+
+    font-size:.9rem;
+
+}
+
+.experience-rating{
+
+    position:absolute;
+
+    top:18px;
+
+    right:18px;
+
+    padding:.45rem .8rem;
+
+    border-radius:50px;
+
+    background:rgba(255,255,255,.92);
+
+    backdrop-filter:blur(10px);
+
+    font-size:.85rem;
+
+    font-weight:700;
+
+}
+/* ==========================================
+   SCROLL REVEAL
+========================================== */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(60px);
+
+    transition:
+
+        opacity .8s ease,
+
+        transform .8s ease;
+
+}
+
+.reveal.active{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+/* ==========================================
+   SHINE EFFECT
+========================================== */
+
+.experience-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:-120%;
+
+    left:-80%;
+
+    width:60%;
+
+    height:250%;
+
+    background:
+
+        linear-gradient(
+
+            120deg,
+
+            transparent,
+
+            rgba(255,255,255,.35),
+
+            transparent
+
+        );
+
+    transform:rotate(25deg);
+
+    transition:1s;
+
+}
+
+.experience-card:hover::after{
+
+    left:160%;
+
+}

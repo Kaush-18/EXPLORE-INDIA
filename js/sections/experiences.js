@@ -5,28 +5,73 @@ export function initExperiences() {
   if (!container) return;
 
   container.innerHTML = "";
+  if(experiences.length===0){
 
-  experiences.forEach((experience) => {
+    container.innerHTML=`
+
+        <div class="empty-state">
+
+            <h3>No Experiences Found</h3>
+
+            <p>Please check back later.</p>
+
+        </div>
+
+    `;
+
+    return;
+
+}
+
+  experiences.forEach((experience, index) => {
     container.innerHTML += `
-      <article class="experience-card">
-        <div class="experience-image">
-          <img src="${experience.image}" alt="${experience.title}">
-        </div>
+    <article
+    class="experience-card reveal"
+    style="animation-delay:${index * 120}ms">
 
-        <div class="experience-content">
-          <span class="experience-category">
+    <div class="experience-image">
+
+        <img src="${experience.image}" alt="${experience.title}">
+
+        <span class="experience-rating">
+            ⭐ ${experience.rating}
+        </span>
+
+    </div>
+
+    <div class="experience-content">
+
+        <span class="experience-category">
             ${experience.category}
-          </span>
+        </span>
 
-          <h3>${experience.title}</h3>
+        <h3>${experience.title}</h3>
 
-          <p>${experience.description}</p>
+        <p>${experience.description}</p>
 
-          <button class="experience-btn">
-            Explore More →
-          </button>
+        <div class="experience-meta">
+
+            <span>
+                📍 ${experience.location}
+            </span>
+
+            <span>
+                ⏱ ${experience.duration}
+            </span>
+
         </div>
-      </article>
+
+        <button class="experience-btn">
+
+            Explore More
+
+            <i class="ri-arrow-right-line"></i>
+
+        </button>
+
+    </div>
+
+</article>
     `;
   });
 }
