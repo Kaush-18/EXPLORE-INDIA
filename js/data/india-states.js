@@ -25,52 +25,38 @@ export const indiaStates = [
     },
 
     {
-        id: "INGA",
         name: "Goa",
-        image: "./assets/images/states/goaimg.jpg",
+    
+        tagline: "The Pearl of the Arabian Sea",
+    
         capital: "Panaji",
-        famousFor: "Beaches, Nightlife, Portuguese Heritage",
-        bestTime: "November - February",
-        cuisine: "Goan Fish Curry, Bebinca",
+    
+        image: "...",
+    
+        famous: "Beaches, Portuguese Heritage",
+    
+        season: "November – February",
+    
+        food: "Goan Fish Curry, Bebinca",
+    
         description:
-            "Goa is India's most famous beach destination, known for its vibrant culture and scenic coastline.",
-        topAttractions: [
-            "...",
-            "...",
-            "..."
+            "Goa is India's smallest state, famous for its golden beaches, Portuguese architecture, vibrant nightlife, and laid-back coastal lifestyle.",
+    
+        attractions: [
+            "Baga Beach",
+            "Fort Aguada",
+            "Dudhsagar Falls"
         ],
-        popularCities: [
-            "...",
-            "...",
-            "..."
+    
+        cities: [
+            "Panaji",
+            "Margao",
+            "Vasco da Gama"
         ],
-        budget: "...",
-        climate: "...",
-        festival: "..."
-    },
-
-    {
-        id: "INRJ",
-        name: "Rajasthan",
-        image: "./assets/images/states/rajasthanimg.jpg",
-        capital: "Jaipur",
-        famousFor: "Hawa Mahal, Desert Safari, Forts",
-        bestTime: "October - March",
-        cuisine: "Dal Baati Churma",
-        description:
-            "Rajasthan is known for royal palaces, colorful culture, majestic forts, and the Thar Desert.",
-        topAttractions: [
-            "...",
-            "...",
-            "..."
-        ],
-        popularCities: [
-            "...",
-            "...",
-            "..."
-        ],
-        budget: "...",
-        climate: "...",
-        festival: "..."
-    }
-];
+    
+        budget: "₹20,000 – ₹35,000",
+    
+        climate: "Tropical Coastal",
+    
+        festival: "Goa Carnival"
+    }];

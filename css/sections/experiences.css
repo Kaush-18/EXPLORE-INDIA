@@ -181,39 +181,35 @@
 ========================================================== */
 
 .experience-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
 
-    display:inline-flex;
+    background: transparent;
+    border: none;
+    outline: none;
 
-    align-items:center;
+    color: var(--primary-color); /* or var(--color-primary), whichever your project uses */
 
-    gap:.55rem;
+    font-size: 1rem;
+    font-weight: 600;
 
-    padding:.9rem 1.4rem;
+    cursor: pointer;
 
-    border:none;
+    transition: all .3s ease;
+}
 
-    border-radius:999px;
-
-    background:transparent;
-
-    color:var(--color-primary);
-    
-    padding:0;
-
-    color:#fff;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-    transition:.35s ease;
-
+.experience-btn i{
+    color: inherit;
+    transition: transform .3s ease;
 }
 
 .experience-btn:hover{
+    gap: .9rem;
+}
 
-    transform:translateX(6px);
-
+.experience-btn:hover i{
+    transform: translateX(6px);
 }
 /* ==========================================================
    HOVER EFFECTS
@@ -327,25 +323,31 @@
 }
 
 .experience-rating{
+    position: absolute;
 
-    position:absolute;
+    top: 18px;
+    right: 18px;
 
-    top:18px;
+    display: flex;
+    align-items: center;
+    gap: .35rem;
 
-    right:18px;
+    padding: .45rem .9rem;
 
-    padding:.45rem .8rem;
+    border-radius: 999px;
 
-    border-radius:50px;
+    background: rgba(255, 255, 255, 0.92);
 
-    background:rgba(255,255,255,.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 
-    backdrop-filter:blur(10px);
+    color: #111827;          /* Always dark text */
+    font-size: .85rem;
+    font-weight: 700;
 
-    font-size:.85rem;
+    border: 1px solid rgba(0, 0, 0, 0.08);
 
-    font-weight:700;
-
+    z-index: 5;
 }
 /* ==========================================
    SCROLL REVEAL
