@@ -197,3 +197,11 @@
 .search-item.active h4 {
     color: var(--color-primary);
 }
+.search-section-title{
+    font-size:.85rem;
+    font-weight:600;
+    color:var(--color-primary);
+    margin:8px 12px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}

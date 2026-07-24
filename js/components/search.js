@@ -19,6 +19,26 @@ function highlightMatch(text, query) {
     text.substring(index + query.length)
   );
 }
+const RECENT_SEARCHS_KEY = "explore-india-recent-searches";
+
+function getRecentSearches() {
+  return JSON.parse(localStorage.getItem(RECENT_SEARCHS_KEY)) || [];
+}
+
+function saveRecentSearch(state) {
+  let searches = getRecentSearches();
+
+  searches = searches.filter((item) => item.id !== state.id);
+
+  searches.unshift(state);
+
+  searches = searches.slice(0, 5);
+
+  localStorage.setItem(
+    RECENT_SEARCHS_KEY,
+    JSON.stringify(searches)
+  );
+}
 
 export function initSearch() {
   const overlay = document.querySelector("#search-overlay");
@@ -80,8 +100,44 @@ export function initSearch() {
 
     if (!query) {
       currentMatches = [];
+  
+      const recent = getRecentSearches();
+  
+      if (!recent.length) return;
+  
+      results.innerHTML = `
+          <div class="search-section-title">
+              Recent Searches
+          </div>
+      `;
+  
+      recent.forEach((state) => {
+          const item = document.createElement("button");
+  
+          item.className = "search-item";
+          item.type = "button";
+  
+          item.innerHTML = `
+              <img src="${state.image}" alt="${state.name}">
+  
+              <div class="search-info">
+                  <h4>${state.name}</h4>
+                  <p>📍 ${state.capital}</p>
+                  <small>${state.famousFor}</small>
+              </div>
+          `;
+  
+          item.addEventListener("click", () => {
+              saveRecentSearch(state);
+              selectState(state);
+              closeSearch();
+          });
+  
+          results.appendChild(item);
+      });
+  
       return;
-    }
+  }
 
     const matches = indiaStates.filter((state) => {
       return (
@@ -129,9 +185,10 @@ export function initSearch() {
       `;
 
       item.addEventListener("click", () => {
+        saveRecentSearch(state);
         selectState(state);
         closeSearch();
-      });
+    });
 
       results.appendChild(item);
     });
@@ -160,6 +217,7 @@ export function initSearch() {
         e.preventDefault();
 
         if (activeIndex >= 0) {
+          saveRecentSearch(currentMatches[activeIndex]);
           selectState(currentMatches[activeIndex]);
           closeSearch();
         }
