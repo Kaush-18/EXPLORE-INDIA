@@ -62,9 +62,9 @@
 
 #india-map{
 
-    width:120%;
+    width:100%;
 
-    height:120%;
+    height:100%;
 
     display:block;
 
@@ -250,5 +250,111 @@
     color:var(--color-text-muted);
 
     line-height:1.8;
+
+}
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width:992px){
+
+.explore-layout{
+
+grid-template-columns:1fr;
+
+}
+
+.india-map-card{
+
+position:relative;
+top:auto;
+min-height:520px;
+
+}
+
+#india-map{
+
+width:100%;
+height:100%;
+
+}
+
+.state-panel{
+
+width:100%;
+max-width:none;
+
+}
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width:768px){
+
+.explore-india{
+
+padding:5rem 0;
+
+}
+
+.india-map-card{
+
+padding:1rem;
+min-height:420px;
+
+}
+
+.state-hero{
+
+height:220px;
+
+}
+
+.state-facts{
+
+grid-template-columns:1fr 1fr;
+
+}
+
+.travel-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+/* ==========================================
+   SMALL PHONES
+========================================== */
+
+@media (max-width:480px){
+
+.india-map-card{
+
+min-height:320px;
+
+}
+
+.state-hero{
+
+height:180px;
+
+}
+
+.state-overlay h2{
+
+font-size:1.5rem;
+
+}
+
+.fact-card{
+
+padding:.8rem;
+
+}
 
 }

@@ -25,30 +25,29 @@ export const indiaStates = [
     },
 
     {
+        id: "INGA",
         name: "Goa",
-    
-        tagline: "The Pearl of the Arabian Sea",
     
         capital: "Panaji",
     
-        image: "...",
+        image: "./assets/images/states/goa.jpg",
     
-        famous: "Beaches, Portuguese Heritage",
+        famousFor: "Beaches, Portuguese Heritage",
     
-        season: "November – February",
+        bestTime: "November – February",
     
-        food: "Goan Fish Curry, Bebinca",
+        cuisine: "Goan Fish Curry, Bebinca",
     
         description:
             "Goa is India's smallest state, famous for its golden beaches, Portuguese architecture, vibrant nightlife, and laid-back coastal lifestyle.",
     
-        attractions: [
+        topAttractions: [
             "Baga Beach",
             "Fort Aguada",
             "Dudhsagar Falls"
         ],
     
-        cities: [
+        popularCities: [
             "Panaji",
             "Margao",
             "Vasco da Gama"

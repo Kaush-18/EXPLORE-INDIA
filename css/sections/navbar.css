@@ -108,25 +108,15 @@
 
 /* =====================================================
    NAV LINKS
-===================================================== */
-
-/* =====================================================
-   NAV LINKS
-===================================================== */
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: clamp(18px, 2.35vw, 38px);
-}
+====================================================== */
 
 .nav-links {
   position: relative;
 
   display: inline-flex;
   align-items: center;
+
+  gap: clamp(18px, 2.35vw, 38px);
 
   padding: var(--space-2) 0;
 

@@ -37,7 +37,7 @@
 
     border-radius: 28px;
 
-    background: var(--surface-color);
+    background: var(--color-card);
 
     border: 1px solid rgba(255,255,255,0.08);
 
@@ -139,7 +139,7 @@
 
     background:rgba(37,99,235,.12);
 
-    color:var(--primary-color);
+    color:var(--color-primary);
 
     font-size:.82rem;
 
@@ -168,7 +168,7 @@
 
 .experience-content p{
 
-    color:var(--text-light);
+    color:var(--color-text-muted);
 
     line-height:1.8;
 
@@ -189,7 +189,7 @@
     border: none;
     outline: none;
 
-    color: var(--primary-color); /* or var(--color-primary), whichever your project uses */
+    color: var(--color-primary);
 
     font-size: 1rem;
     font-weight: 600;
@@ -316,7 +316,7 @@
 
     margin:1.5rem 0;
 
-    color:var(--text-light);
+    color:var(--color-text-muted);
 
     font-size:.9rem;
 

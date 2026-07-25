@@ -5,10 +5,13 @@ import { selectState } from "../sections/explore-india.js";
    Highlight Matching Text
 ============================================================ */
 
-function highlightMatch(text, query) {
+function highlightMatch(text = "", query = "") {
   if (!query) return text;
 
-  const index = text.toLowerCase().indexOf(query.toLowerCase());
+  const lowerText = text.toLowerCase();
+  const lowerQuery = query.toLowerCase();
+
+  const index = lowerText.indexOf(lowerQuery);
 
   if (index === -1) return text;
 
@@ -55,14 +58,41 @@ const popularSearches = [
   "Kerala",
   "Rajasthan",
   "Himachal Pradesh",
-  "Jammu & Kashmir",
+  "Delhi",
 ];
+
+/* ============================================================
+   Safe Helpers
+============================================================ */
+
+function getStateName(state) {
+  return state.name || state.state || state.destination_name || "";
+}
+
+function getCapital(state) {
+  return state.capital || "";
+}
+
+function getImage(state) {
+  const img = state.image || "./assets/images/placeholder.svg";
+  if (img === "..." || img === "") return "./assets/images/placeholder.svg";
+  return img;
+}
+
+function getFamous(state) {
+  return state.famousFor || state.famous || "";
+}
+
+function getCuisine(state) {
+  return state.cuisine || state.food || "";
+}
 
 /* ============================================================
    Initialize Search
 ============================================================ */
 
 export function initSearch() {
+
   const overlay = document.querySelector("#search-overlay");
   const input = document.querySelector("#global-search");
   const results = document.querySelector("#search-results");
@@ -75,21 +105,11 @@ export function initSearch() {
   let activeIndex = -1;
   let currentMatches = [];
 
-  /* ============================================================
-     Open Search
-  ============================================================ */
-
   function openSearch() {
     overlay.classList.add("active");
     input.focus();
-
-    // Show recent/popular immediately
     input.dispatchEvent(new Event("input"));
   }
-
-  /* ============================================================
-     Close Search
-  ============================================================ */
 
   function closeSearch() {
     overlay.classList.remove("active");
@@ -101,11 +121,8 @@ export function initSearch() {
     currentMatches = [];
   }
 
-  /* ============================================================
-     Create Search Card
-  ============================================================ */
-
   function createSearchItem(state, query = "", index = null) {
+
     const item = document.createElement("button");
 
     item.className = "search-item";
@@ -115,34 +132,22 @@ export function initSearch() {
       item.dataset.index = index;
     }
 
+    const name = getStateName(state);
+    const capital = getCapital(state);
+    const famous = getFamous(state);
+
     item.innerHTML = `
-      <img src="${state.image}" alt="${state.name}">
+        <img src="${getImage(state)}" alt="${name}">
 
-      <div class="search-info">
+        <div class="search-info">
 
-        <h4>${
-          query
-            ? highlightMatch(state.name, query)
-            : state.name
-        }</h4>
+            <h4>${query ? highlightMatch(name, query) : name}</h4>
 
-        <p>
-          📍 ${
-            query
-              ? highlightMatch(state.capital, query)
-              : state.capital
-          }
-        </p>
+            <p>📍 ${query ? highlightMatch(capital, query) : capital}</p>
 
-        <small>
-          ${
-            query
-              ? highlightMatch(state.famousFor, query)
-              : state.famousFor
-          }
-        </small>
+            <small>${query ? highlightMatch(famous, query) : famous}</small>
 
-      </div>
+        </div>
     `;
 
     item.addEventListener("click", () => {
@@ -154,12 +159,7 @@ export function initSearch() {
     return item;
   }
 
-  /* ============================================================
-     Overlay Events
-  ============================================================ */
-
   openBtn?.addEventListener("click", openSearch);
-
   closeBtn?.addEventListener("click", closeSearch);
 
   overlay.addEventListener("click", (e) => {
@@ -169,95 +169,98 @@ export function initSearch() {
   });
 
   document.addEventListener("keydown", (e) => {
-    if (
-      e.key === "Escape" &&
-      overlay.classList.contains("active")
-    ) {
+    if (e.key === "Escape" && overlay.classList.contains("active")) {
       closeSearch();
     }
   });
+
   /* ============================================================
      Live Search
   ============================================================ */
 
   input.addEventListener("input", () => {
+
     const query = input.value.trim().toLowerCase();
 
     results.innerHTML = "";
     activeIndex = -1;
 
-    /* ----------------------------
-       Empty Search
-    ----------------------------- */
-
     if (!query) {
+
       currentMatches = [];
 
       const recent = getRecentSearches();
 
       if (recent.length) {
-        results.innerHTML = `
-          <div class="search-section-title">
-            🕘 Recent Searches
-          </div>
-        `;
+
+        results.innerHTML =
+          `<div class="search-section-title">🕘 Recent Searches</div>`;
 
         recent.forEach((state) => {
           results.appendChild(createSearchItem(state));
         });
+
       } else {
-        results.innerHTML = `
-          <div class="search-section-title">
-            🔥 Popular Destinations
-          </div>
-        `;
+
+        results.innerHTML =
+          `<div class="search-section-title">🔥 Popular Destinations</div>`;
 
         popularSearches.forEach((name) => {
+
           const state = indiaStates.find(
-            (s) => s.name === name
+            (s) => getStateName(s) === name
           );
 
           if (state) {
             results.appendChild(createSearchItem(state));
           }
+
         });
+
       }
 
       return;
     }
 
-    /* ----------------------------
-       Find Matches
-    ----------------------------- */
+    /* ============================================================
+       Search
+    ============================================================ */
 
     const matches = indiaStates.filter((state) => {
-      return (
-        state.name.toLowerCase().includes(query) ||
-        state.capital.toLowerCase().includes(query) ||
-        state.famousFor.toLowerCase().includes(query) ||
-        state.cuisine.toLowerCase().includes(query)
+
+      const values = [
+        getStateName(state),
+        getCapital(state),
+        getFamous(state),
+        getCuisine(state),
+      ];
+
+      return values.some((value) =>
+        value.toLowerCase().includes(query)
       );
+
     });
 
     currentMatches = matches;
 
     if (!matches.length) {
+
       results.innerHTML = `
         <div class="search-empty">
-          <h3>No results found 😕</h3>
-          <p>Try searching another destination.</p>
+            <h3>No results found 😕</h3>
+            <p>Try another destination.</p>
         </div>
       `;
+
       return;
     }
-
-    results.innerHTML = "";
 
     matches.forEach((state, index) => {
       results.appendChild(
         createSearchItem(state, query, index)
       );
     });
+
   });
 
   /* ============================================================
@@ -265,11 +268,13 @@ export function initSearch() {
   ============================================================ */
 
   input.addEventListener("keydown", (e) => {
+
     const items = results.querySelectorAll(".search-item");
 
     if (!items.length) return;
 
     switch (e.key) {
+
       case "ArrowDown":
         e.preventDefault();
         activeIndex = (activeIndex + 1) % items.length;
@@ -282,25 +287,27 @@ export function initSearch() {
         break;
 
       case "Enter":
+
         e.preventDefault();
 
         if (
           activeIndex >= 0 &&
           currentMatches[activeIndex]
         ) {
-          saveRecentSearch(
-            currentMatches[activeIndex]
-          );
+
+          saveRecentSearch(currentMatches[activeIndex]);
 
           selectState(currentMatches[activeIndex]);
 
           closeSearch();
+
         }
 
         return;
 
       default:
         return;
+
     }
 
     items.forEach((item) =>
@@ -310,18 +317,18 @@ export function initSearch() {
     const activeItem = items[activeIndex];
 
     if (activeItem) {
+
       activeItem.classList.add("active");
 
       activeItem.scrollIntoView({
         behavior: "smooth",
         block: "nearest",
       });
+
     }
+
   });
 
-  /* ============================================================
-     Auto Show Recent Searches
-  ============================================================ */
-
   input.dispatchEvent(new Event("input"));
+
 }
