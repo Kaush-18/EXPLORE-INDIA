@@ -19,41 +19,50 @@ function cacheDOM() {
     dom.budget = document.getElementById("state-budget");
     dom.climate = document.getElementById("state-climate");
     dom.festival = document.getElementById("state-festival");
-    dom.exploreBtn = document.querySelector(".state-info-panel .explore-btn");
+    dom.exploreBtn =document.getElementById("explore-state-btn");
 }
 
 export function updateStatePanel(state) {
 
     if (!dom.image || !dom.name) return;
 
-    dom.image.src = state.image;
-    dom.image.alt = state.name;
+    const name = state.name || "";
+    const capital = state.capital || "";
+    const famousFor = state.famousFor || state.famous || "";
+    const bestTime = state.bestTime || state.season || "";
+    const cuisine = state.cuisine || state.food || "";
+    const description = state.description || "";
+    const topAttractions = state.topAttractions || state.attractions || [];
+    const popularCities = state.popularCities || state.cities || [];
 
-    dom.name.textContent = state.name;
-    dom.capital.textContent = state.capital;
-    dom.famous.textContent = state.famousFor;
-    dom.season.textContent = state.bestTime;
-    dom.food.textContent = state.cuisine;
-    dom.description.textContent = state.description;
+    dom.image.src = state.image || "./assets/images/placeholder.svg";
+    dom.image.alt = name;
+
+    dom.name.textContent = name;
+    dom.capital.textContent = capital;
+    dom.famous.textContent = famousFor;
+    dom.season.textContent = bestTime;
+    dom.food.textContent = cuisine;
+    dom.description.textContent = description;
 
     if (dom.attractions) {
-        dom.attractions.innerHTML = state.topAttractions
+        dom.attractions.innerHTML = topAttractions
             .map(item => `<li class="chip chip-primary">${item}</li>`)
             .join("");
     }
     if (dom.cities) {
-        dom.cities.innerHTML = state.popularCities
+        dom.cities.innerHTML = popularCities
             .map(city => `<span class="chip chip-surface">${city}</span>`)
             .join("");
     }
     if (dom.budget) {
-        dom.budget.textContent = state.budget;
+        dom.budget.textContent = state.budget || "--";
     }
     if (dom.climate) {
-        dom.climate.textContent = state.climate;
+        dom.climate.textContent = state.climate || "--";
     }
     if (dom.festival) {
-        dom.festival.textContent = state.festival;
+        dom.festival.textContent = state.festival || "--";
     }
 }
 export function selectState(state) {

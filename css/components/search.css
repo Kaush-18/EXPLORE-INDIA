@@ -183,19 +183,11 @@
 }
 .search-item.active{
     background:rgba(37,99,235,.12);
-    outline:2px solid var(--color-primary);
+    border:1px solid rgba(37,99,235,.4);
 }
 
 .search-item.active h4{
     color:var(--color-primary);
-}
-.search-item.active {
-    background: rgba(37, 99, 235, 0.12);
-    border: 1px solid rgba(37, 99, 235, 0.4);
-}
-
-.search-item.active h4 {
-    color: var(--color-primary);
 }
 .search-section-title{
     font-size:.85rem;

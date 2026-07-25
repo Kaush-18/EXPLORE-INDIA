@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+    
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#2563eb">
@@ -10,8 +11,17 @@
     />
 
 
-    <title>Explore India | Discover Incredible India</title>
+    <title>Explorer's Hub | Discover Incredible India</title>
 
+    <meta
+        name="description"
+        content="Discover Indian states, destinations, culture, food, and travel experiences with Explorer's Hub."
+    >
+    
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -373,206 +383,341 @@
           </div>
         </div>
       </section>
-      <section class="explore-india section">
+      <section class="explore-india section" id="explore-india">
 
         <div class="container">
     
-            <div class="section-header">
+            <!-- Section Heading -->
     
-                <span class="section-tag">Explore India</span>
+            <div class="section-header reveal">
+    
+                <span class="section-subtitle">
+                    Discover Incredible India
+                </span>
     
                 <h2 class="section-title">
-                    Discover Every State
+    
+                    Explore India State by State
+    
                 </h2>
     
                 <p class="section-description">
-                    Click on any state to explore its culture, tourism, cuisine and famous attractions.
+    
+                    Click on any state to discover its culture,
+                    food, attractions and travel information.
+    
                 </p>
     
             </div>
     
-            <div class="india-map-layout">
+            <!-- Main Layout -->
     
-              <div class="india-map-container">
-
-                <object
-                    id="india-map"
-                    type="image/svg+xml"
-                    data="./assets/svg/india-map.svg">
-                </object>
-            
-              </div>
+            <div class="explore-layout">
     
-              <div class="state-info-panel card">
-
-                <img
-                    id="state-image"
-                    src="https://placehold.co/600x350"
-                    alt="State Image"
-                />
-            
-                <h3 id="state-name">
-                    Select a State
-                </h3>
-            
-                <div class="state-meta">
-
-                  <div class="meta-card">
-                      <span class="meta-label">Capital</span>
-                      <p id="state-capital" class="meta-value"></p>
-                  </div>
-              
-                  <div class="meta-card">
-                      <span class="meta-label">Famous For</span>
-                      <p id="state-famous" class="meta-value"></p>
-                  </div>
-              
-                  <div class="meta-card">
-                      <span class="meta-label">Best Time</span>
-                      <p id="state-season" class="meta-value"></p>
-                  </div>
-              
-                  <div class="meta-card">
-                      <span class="meta-label">Cuisine</span>
-                      <p id="state-food" class="meta-value"></p>
-                  </div>
-              
+                <!-- =========================================
+                     MAP
+                ========================================== -->
+    
+                <div class="india-map-card reveal">
+    
+                    <object
+                        id="india-map"
+                        data="./assets/svg/india-map.svg"
+                        type="image/svg+xml">
+                    </object>
+    
                 </div>
-            
-                <p id="state-description">
-                    Click on any state to explore India.
-                </p>
-                <hr />
-
-                <div class="travel-details">
-
-                  <h4>Top Attractions</h4>
-                  <ul id="state-attractions"></ul>
-              
-                  <h4>Popular Cities</h4>
-                  <div id="state-cities"></div>
-              
-                  <div class="travel-highlights">
-
-                    <div class="highlight-card">
-                
-                        <span class="highlight-title">
-                            💰 Budget
-                        </span>
-                
-                        <p id="state-budget" class="highlight-value"></p>
-                
+    
+                <!-- =========================================
+                     INFO PANEL
+                ========================================== -->
+    
+                <aside class="state-panel reveal">
+    
+                    <!-- Hero Image -->
+    
+                    <div class="state-hero">
+    
+                        <img
+                            id="state-image"
+                            src="./assets/images/placeholder.svg"
+                            alt="State Image"
+                        >
+    
+                        <div class="state-overlay">
+    
+                            <h2 id="state-name">
+    
+                                Select a State
+    
+                            </h2>
+    
+                            <p id="state-tagline">
+    
+                                Click on the map to begin
+    
+                            </p>
+    
+                        </div>
+    
                     </div>
-                
-                    <div class="highlight-card">
-                
-                        <span class="highlight-title">
-                            🌤 Climate
-                        </span>
-                
-                        <p id="state-climate" class="highlight-value"></p>
-                
+    
+                    <!-- Quick Facts -->
+    
+                    <div class="state-facts">
+    
+                        <div class="fact-card">
+    
+                            <span>📍</span>
+    
+                            <div>
+    
+                                <small>Capital</small>
+    
+                                <h4 id="state-capital">
+    
+                                    --
+    
+                                </h4>
+    
+                            </div>
+    
+                        </div>
+    
+                        <div class="fact-card">
+    
+                            <span>🍛</span>
+    
+                            <div>
+    
+                                <small>Cuisine</small>
+    
+                                <h4 id="state-food">
+    
+                                    --
+    
+                                </h4>
+    
+                            </div>
+    
+                        </div>
+    
+                        <div class="fact-card">
+    
+                            <span>☀</span>
+    
+                            <div>
+    
+                                <small>Best Time</small>
+    
+                                <h4 id="state-season">
+    
+                                    --
+    
+                                </h4>
+    
+                            </div>
+    
+                        </div>
+    
+                        <div class="fact-card">
+    
+                            <span>🏛</span>
+    
+                            <div>
+    
+                                <small>Famous For</small>
+    
+                                <h4 id="state-famous">
+    
+                                    --
+    
+                                </h4>
+    
+                            </div>
+    
+                        </div>
+    
                     </div>
-                
-                    <div class="highlight-card">
-                
-                        <span class="highlight-title">
-                            🎉 Festival
-                        </span>
-                
-                        <p id="state-festival" class="highlight-value"></p>
-                
+    
+                    <!-- Description -->
+    
+                    <div class="state-description">
+    
+                        <p id="state-description">
+    
+                            Select a state to discover India.
+    
+                        </p>
+    
                     </div>
-                
-                </div>
-              
-              </div>
-
-              <button class="btn btn-primary explore-btn">
-                Explore More
-              </button>
-            
-            </div>
+    
+                    <!-- Attractions -->
+    
+                    <div class="info-block">
+    
+                        <h3>
+    
+                            ⭐ Top Attractions
+    
+                        </h3>
+    
+                        <div
+                            class="chip-container"
+                            id="state-attractions">
+    
+                        </div>
+    
+                    </div>
+    
+                    <!-- Cities -->
+    
+                    <div class="info-block">
+    
+                        <h3>
+    
+                            🏙 Popular Cities
+    
+                        </h3>
+    
+                        <div
+                            class="chip-container"
+                            id="state-cities">
+    
+                        </div>
+    
+                    </div>
+    
+                    <!-- Travel Cards -->
+    
+                    <div class="travel-grid">
+    
+                        <div class="travel-card">
+    
+                            <h4>
+    
+                                💰 Budget
+    
+                            </h4>
+    
+                            <p id="state-budget">
+    
+                                --
+    
+                            </p>
+    
+                        </div>
+    
+                        <div class="travel-card">
+    
+                            <h4>
+    
+                                🌦 Climate
+    
+                            </h4>
+    
+                            <p id="state-climate">
+    
+                                --
+    
+                            </p>
+    
+                        </div>
+    
+                        <div class="travel-card">
+    
+                            <h4>
+    
+                                🎉 Festival
+    
+                            </h4>
+    
+                            <p id="state-festival">
+    
+                                --
+    
+                            </p>
+    
+                        </div>
+    
+                    </div>
+    
+                    <!-- CTA -->
+    
+                    <button
+                        class="btn btn-primary"
+                        id="explore-state-btn">
+    
+                        Explore State →
+    
+                    </button>
+    
+                </aside>
     
             </div>
     
         </div>
     
     </section>
-
-      <section id="featured-destinations" class="section featured-section">
-        <div class="container">
-          <div class="section-heading">
-            <span class="section-tag">Popular Destinations</span>
-            <h2>Plan your next unforgettable journey</h2>
-            <p>
-              From royal forts to misty hills, find inspiration for your ideal
-              India trip.
-            </p>
-          </div>
-
-          <div class="card-grid">
-            <article class="info-card">
-              <h3>Jaipur</h3>
-              <p>Discover palaces, vibrant bazaars, and timeless heritage.</p>
-            </article>
-            <article class="info-card">
-              <h3>Goa</h3>
-              <p>Enjoy sunlit beaches, nightlife, and relaxed coastal charm.</p>
-            </article>
-            <article class="info-card">
-              <h3>Kerala</h3>
-              <p>Drift through backwaters and soak in nature-rich serenity.</p>
-            </article>
-          </div>
+    <section class="experiences section" id="experiences">
+      <div class="container">
+    
+        <div class="section-header">
+          <span class="section-subtitle">
+            Discover More
+          </span>
+    
+          <h2 class="section-title">
+            Unforgettable Experiences
+          </h2>
+    
+          <p class="section-description">
+            Every destination in India offers unforgettable memories. Explore adventures, culture, food, wildlife, and much more.
+          </p>
         </div>
-      </section>
+    
+        <div
+          class="experiences-grid"
+          id="experiences-grid"
+        ></div>
+    
+      </div>
+    </section>
 
-      <section id="experiences" class="section experiences-section">
-        <div class="container">
-          <div class="section-heading">
-            <span class="section-tag">Signature Experiences</span>
-            <h2>Travel in the way you love</h2>
-          </div>
+    <section class="travel-guide section" id="travel-guide">
 
-          <div class="card-grid two-up">
-            <article class="info-card">
-              <h3>Luxury Train Journeys</h3>
-              <p>Ride through royal landscapes in comfort and style.</p>
-            </article>
-            <article class="info-card">
-              <h3>Wildlife Safaris</h3>
-              <p>Spot rare creatures and explore protected natural habitats.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="travel-guide" class="section travel-guide-section">
-        <div class="container">
-          <div class="section-heading">
-            <span class="section-tag">Travel Guide</span>
-            <h2>Helpful tips before you go</h2>
-          </div>
-
-          <div class="card-grid">
-            <article class="info-card">
-              <h3>Best Time to Visit</h3>
-              <p>
-                Choose seasons based on your preferred climate and festivals.
+      <div class="container">
+  
+          <div class="section-header">
+  
+              <span class="section-subtitle">
+  
+                  Plan Better
+  
+              </span>
+  
+              <h2 class="section-title">
+  
+                  Travel Guide
+  
+              </h2>
+  
+              <p class="section-description">
+  
+                  Everything you need before exploring Incredible India.
+  
               </p>
-            </article>
-            <article class="info-card">
-              <h3>Stay Connected</h3>
-              <p>Use local SIM cards and offline maps for smoother travel.</p>
-            </article>
-            <article class="info-card">
-              <h3>Respect Local Culture</h3>
-              <p>Learn a few local phrases and customs before you explore.</p>
-            </article>
+  
           </div>
-        </div>
-      </section>
+  
+          <div
+              class="travel-guide-grid"
+              id="travel-guide-grid"
+          ></div>
+  
+      </div>
+  
+  </section>
 
       <section id="contact" class="section contact-section">
         <div class="container">

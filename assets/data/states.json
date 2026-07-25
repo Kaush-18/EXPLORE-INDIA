@@ -1,0 +1,218 @@
+[
+    {
+      "id": "andhra-pradesh",
+      "name": "Andhra Pradesh",
+      "type": "State",
+      "capital": "Amaravati"
+    },
+    {
+      "id": "arunachal-pradesh",
+      "name": "Arunachal Pradesh",
+      "type": "State",
+      "capital": "Itanagar"
+    },
+    {
+      "id": "assam",
+      "name": "Assam",
+      "type": "State",
+      "capital": "Dispur"
+    },
+    {
+      "id": "bihar",
+      "name": "Bihar",
+      "type": "State",
+      "capital": "Patna"
+    },
+    {
+      "id": "chhattisgarh",
+      "name": "Chhattisgarh",
+      "type": "State",
+      "capital": "Raipur"
+    },
+    {
+      "id": "goa",
+      "name": "Goa",
+      "type": "State",
+      "capital": "Panaji"
+    },
+    {
+      "id": "gujarat",
+      "name": "Gujarat",
+      "type": "State",
+      "capital": "Gandhinagar"
+    },
+    {
+      "id": "haryana",
+      "name": "Haryana",
+      "type": "State",
+      "capital": "Chandigarh"
+    },
+    {
+      "id": "himachal-pradesh",
+      "name": "Himachal Pradesh",
+      "type": "State",
+      "capital": "Shimla"
+    },
+    {
+      "id": "jharkhand",
+      "name": "Jharkhand",
+      "type": "State",
+      "capital": "Ranchi"
+    },
+    {
+      "id": "karnataka",
+      "name": "Karnataka",
+      "type": "State",
+      "capital": "Bengaluru"
+    },
+    {
+      "id": "kerala",
+      "name": "Kerala",
+      "type": "State",
+      "capital": "Thiruvananthapuram"
+    },
+    {
+      "id": "madhya-pradesh",
+      "name": "Madhya Pradesh",
+      "type": "State",
+      "capital": "Bhopal"
+    },
+    {
+      "id": "maharashtra",
+      "name": "Maharashtra",
+      "type": "State",
+      "capital": "Mumbai"
+    },
+    {
+      "id": "manipur",
+      "name": "Manipur",
+      "type": "State",
+      "capital": "Imphal"
+    },
+    {
+      "id": "meghalaya",
+      "name": "Meghalaya",
+      "type": "State",
+      "capital": "Shillong"
+    },
+    {
+      "id": "mizoram",
+      "name": "Mizoram",
+      "type": "State",
+      "capital": "Aizawl"
+    },
+    {
+      "id": "nagaland",
+      "name": "Nagaland",
+      "type": "State",
+      "capital": "Kohima"
+    },
+    {
+      "id": "odisha",
+      "name": "Odisha",
+      "type": "State",
+      "capital": "Bhubaneswar"
+    },
+    {
+      "id": "punjab",
+      "name": "Punjab",
+      "type": "State",
+      "capital": "Chandigarh"
+    },
+    {
+      "id": "rajasthan",
+      "name": "Rajasthan",
+      "type": "State",
+      "capital": "Jaipur"
+    },
+    {
+      "id": "sikkim",
+      "name": "Sikkim",
+      "type": "State",
+      "capital": "Gangtok"
+    },
+    {
+      "id": "tamil-nadu",
+      "name": "Tamil Nadu",
+      "type": "State",
+      "capital": "Chennai"
+    },
+    {
+      "id": "telangana",
+      "name": "Telangana",
+      "type": "State",
+      "capital": "Hyderabad"
+    },
+    {
+      "id": "tripura",
+      "name": "Tripura",
+      "type": "State",
+      "capital": "Agartala"
+    },
+    {
+      "id": "uttar-pradesh",
+      "name": "Uttar Pradesh",
+      "type": "State",
+      "capital": "Lucknow"
+    },
+    {
+      "id": "uttarakhand",
+      "name": "Uttarakhand",
+      "type": "State",
+      "capital": "Dehradun"
+    },
+    {
+      "id": "west-bengal",
+      "name": "West Bengal",
+      "type": "State",
+      "capital": "Kolkata"
+    },
+    {
+      "id": "andaman-and-nicobar-islands",
+      "name": "Andaman and Nicobar Islands",
+      "type": "Union Territory",
+      "capital": "Port Blair"
+    },
+    {
+      "id": "chandigarh",
+      "name": "Chandigarh",
+      "type": "Union Territory",
+      "capital": "Chandigarh"
+    },
+    {
+      "id": "dadra-and-nagar-haveli-and-daman-and-diu",
+      "name": "Dadra and Nagar Haveli and Daman and Diu",
+      "type": "Union Territory",
+      "capital": "Daman"
+    },
+    {
+      "id": "delhi",
+      "name": "Delhi",
+      "type": "Union Territory",
+      "capital": "New Delhi"
+    },
+    {
+      "id": "jammu-and-kashmir",
+      "name": "Jammu and Kashmir",
+      "type": "Union Territory",
+      "capital": "Srinagar (Summer), Jammu (Winter)"
+    },
+    {
+      "id": "ladakh",
+      "name": "Ladakh",
+      "type": "Union Territory",
+      "capital": "Leh"
+    },
+    {
+      "id": "lakshadweep",
+      "name": "Lakshadweep",
+      "type": "Union Territory",
+      "capital": "Kavaratti"
+    },
+    {
+      "id": "puducherry",
+      "name": "Puducherry",
+      "type": "Union Territory",
+      "capital": "Puducherry"
+    }
+  ]

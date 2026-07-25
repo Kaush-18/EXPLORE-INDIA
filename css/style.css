@@ -31,6 +31,10 @@
 @import url("./components/info-card.css");
 @import url("./components/contact-card.css");
 @import url("./components/search.css");
+@import url("./components/icon-box.css");
+@import url("./components/badges.css");
+@import url("./components/inputs.css");
+@import url("./components/loader.css");
 
 /* ==========================================
    SECTIONS
@@ -41,9 +45,11 @@
 @import url("./sections/states.css");
 @import url("./sections/destinations.css");
 @import url("./sections/explore-india.css");
-
+@import url("./sections/experiences.css");
+@import url("./sections/travel-guide.css");
 /* ==========================================
    UTILITIES
 ========================================== */
 
 @import url("./utilities.css");
+@import url("./utilities/animations.css");

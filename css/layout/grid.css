@@ -15,7 +15,15 @@
 
 /* Three-column grid */
 .grid-3 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(3,1fr);
+
+    gap:2rem;
+
 }
 
 /* Four-column grid */
@@ -27,6 +35,7 @@
 
 @media (max-width: 992px) {
 
+    .grid-2,
     .grid-4 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
