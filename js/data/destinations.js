@@ -4,7 +4,7 @@ export const destinations = [
         title: "Taj Mahal",
         city: "Agra",
         state: "Uttar Pradesh",
-        image: "./assets/images/destinations/taj mahal.jpg",
+        image: "./assets/images/destinations/taj mahal.webp",
         rating: 4.9,
         price: "₹12,000",
         season: "Oct - Mar"
@@ -14,7 +14,7 @@ export const destinations = [
         title: "Gateway of India",
         city: "Mumbai",
         state: "Maharashtra",
-        image: "./assets/images/destinations/gateway of india.jpg",
+        image: "./assets/images/destinations/gateway of india.webp",
         rating: 4.8,
         price: "₹10,500",
         season: "Nov - Feb"
@@ -24,7 +24,7 @@ export const destinations = [
         title: "Dal Lake",
         city: "Srinagar",
         state: "Jammu & Kashmir",
-        image: "./assets/images/destinations/dal lake.jpg",
+        image: "./assets/images/destinations/dal lake.webp",
         rating: 4.9,
         price: "₹16,000",
         season: "Apr - Oct"
@@ -34,7 +34,7 @@ export const destinations = [
         title: "Alleppey Backwaters",
         city: "Alleppey",
         state: "Kerala",
-        image: "./assets/images/destinations/alleppey backwaters.jpg",
+        image: "./assets/images/destinations/alleppey backwaters.webp",
         rating: 4.8,
         price: "₹14,000",
         season: "Sep - Mar"
@@ -44,7 +44,7 @@ export const destinations = [
         title: "Hawa Mahal",
         city: "Jaipur",
         state: "Rajasthan",
-        image: "./assets/images/destinations/hawa mahal.jpg",
+        image: "./assets/images/destinations/hawa mahal.webp",
         rating: 4.8,
         price: "₹11,000",
         season: "Oct - Mar"
@@ -54,7 +54,7 @@ export const destinations = [
         title: "Rohtang Pass",
         city: "Manali",
         state: "Himachal Pradesh",
-        image: "./assets/images/destinations/rohtang pass.jpg",
+        image: "./assets/images/destinations/rohtang pass.webp",
         rating: 4.9,
         price: "₹13,000",
         season: "May - Oct"
