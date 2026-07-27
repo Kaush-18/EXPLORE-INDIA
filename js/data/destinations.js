@@ -56,7 +56,6 @@ export const destinations = [
         state: "Himachal Pradesh",
         image: "./assets/images/destinations/rohtang pass.webp",
         rating: 4.9,
-        price: "₹13,000",
         season: "May - Oct"
     }
 ];
