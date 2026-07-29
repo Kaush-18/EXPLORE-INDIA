@@ -2,7 +2,7 @@ export const indiaStates = [
     {
         id: "INDL",
         name: "Delhi",
-        image: "./assets/images/states/delhi.jpg",
+        image: "./assets/images/states/delhi/delhi.jpg",
         capital: "New Delhi",
         famousFor: "Red Fort, India Gate, Qutub Minar",
         bestTime: "October - March",
@@ -30,7 +30,7 @@ export const indiaStates = [
     
         capital: "Panaji",
     
-        image: "./assets/images/states/goa.jpg",
+        image: "./assets/images/states/goa/goa.jpg",
     
         famousFor: "Beaches, Portuguese Heritage",
     
